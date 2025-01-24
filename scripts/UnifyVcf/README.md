@@ -9,6 +9,7 @@ The vcf files that are unified by it are:
 SV - structural variants vcf
 CNV - copy number variants vcf
 Repeats - tandem repeat variants vcf
+ROH - Regions of Homozygosity bed
 
 This script not only unifies the files but also modifies them when necessary, since each provider provides 
 slightly different vcf files and the final file has to include specific fields for Geneyx application 
@@ -22,7 +23,7 @@ ONTUnifyVcf.py - for Oxford Nanopore sequences and pipeline
 PacBioUnifyVcf.py - for PacBio sequences and pipeline
 
 Running the Unifying scripts:
-usage: DragenUnifyVcf.py [-h] -o OUTPUTPATH [-s SVPATH] [-c CNVPATH] [-r REPEATPATH]
+usage: DragenUnifyVcf.py [-h] -o OUTPUTPATH [-s SVPATH] [-c CNVPATH] [-r REPEATPATH] [-d ROH_BED_FILE]
 usage: ONTUnifyVcf.py [-h] -o OUTPUTPATH [-s SVPATH] [-c CNVPATH] [-r REPEATPATH]
 usage: PacBioUnifyVcf.py [-h] -o OUTPUTPATH [-s SVPATH] [-c CNVPATH] [-r FULLREPEATPATH] [-b REPEATLOCATIONSBEDFILEPATH]
 
@@ -44,3 +45,5 @@ usage: PacBioUnifyVcf.py [-h] -o OUTPUTPATH [-s SVPATH] [-c CNVPATH] [-r FULLREP
 		  (named pathogenic_repeats.hg38.bed or the like)
 		  Please notice that when running with this parameter you have to run on linux 
 		  and have bedtools installed
+-d        Relevant only for Dragen. Path to the Bed file of the Regions of Homozigosity (ROH) produced 
+          by dragen when run with the --vc-enable-roh flag.
